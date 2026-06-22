@@ -44,7 +44,7 @@ app.set("io", io);
 // ==========================================
 
 app.use(helmet()); 
-app.use(cors({ origin: process.env.CORS_ORIGIN || "http://localhost:3000", credentials: true })); 
+app.use(cors({ origin: "https://movie-booking-system-jade.vercel.app/", credentials: true })); 
 app.use(morgan("dev")); 
 app.use(express.json({ limit: "10kb" })); 
 
