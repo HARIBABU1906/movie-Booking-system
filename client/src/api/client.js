@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "../utils/auth";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || "http://localhost:5000/api",
+  baseURL:"https://movie-booking-system-vhoq.onrender.com/",
 });
 
 api.interceptors.request.use((config) => {
