@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "../utils/auth";
 
 const api = axios.create({
-  baseURL:"https://movie-booking-system-vhoq.onrender.com/",
+  baseURL:"https://movie-booking-system-vhoq.onrender.com/api",
 });
 
 api.interceptors.request.use((config) => {
