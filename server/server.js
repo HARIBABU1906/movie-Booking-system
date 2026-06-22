@@ -28,7 +28,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: { 
-    origin: process.env.CORS_ORIGIN || "http://localhost:3000", 
+    origin: process.env.CORS_ORIGIN || "https://movie-booking-system-jade.vercel.app", 
     methods: ["GET", "POST"],
     credentials: true
   }
@@ -44,7 +44,7 @@ app.set("io", io);
 // ==========================================
 
 app.use(helmet()); 
-app.use(cors({ origin: "https://movie-booking-system-jade.vercel.app/", credentials: true })); 
+app.use(cors({ origin: process.env.CORS_ORIGIN || "https://movie-booking-system-jade.vercel.app/", credentials: true })); 
 app.use(morgan("dev")); 
 app.use(express.json({ limit: "10kb" })); 
 
