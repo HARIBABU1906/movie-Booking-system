@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start-server": "cd server && npm run dev",
+    "start-client": "cd client && npm start",
+    "seed": "cd server && node seed_v4_correct_db.js"
+  },
+  "dependencies": {
+    "express-rate-limit": "^8.3.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1"
+  }
+}
