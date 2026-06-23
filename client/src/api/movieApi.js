@@ -7,14 +7,14 @@ export async function login(payload) {
 }
 
 export async function register(payload) {
-  const response = await api.post("/auth/register", payload);
+  const response = await api.post("/api/auth/register", payload);
   return response.data;
 }
 
 
 export async function fetchMovies() {
   try {
-    const response = await api.get("/movies");
+    const response = await api.get("/api/movies");
     return response.data;
   } catch (error) {
     // Fallback to mock data for UI demo when backend is unavailable
@@ -24,23 +24,23 @@ export async function fetchMovies() {
 }
 
 export async function addMovie(payload) {
-  const response = await api.post("/movies", payload);
+  const response = await api.post("/api/movies", payload);
   return response.data;
 }
 
 export async function updateMovie(id, payload) {
-  const response = await api.put(`/movies/${id}`, payload);
+  const response = await api.put(`/api/movies/${id}`, payload);
   return response.data;
 }
 
 export async function deleteMovie(id) {
-  const response = await api.delete(`/movies/${id}`);
+  const response = await api.delete(`/api/movies/${id}`);
   return response.data;
 }
 
 export async function fetchAdminMovies() {
   try {
-    const response = await api.get("/admin/movies");
+    const response = await api.get("/api/admin/movies");
     return response.data;
   } catch (error) {
     console.warn("fetchAdminMovies: fallback to mock data", error);
@@ -50,7 +50,7 @@ export async function fetchAdminMovies() {
 
 export async function fetchAdminBookings() {
   try {
-    const response = await api.get("/admin/bookings");
+    const response = await api.get("/api/admin/bookings");
     return response.data;
   } catch (error) {
     console.warn("fetchAdminBookings: fallback to mock data", error);
@@ -74,64 +74,64 @@ export async function fetchAdminBookings() {
 }
 
 export async function fetchOwnerShows() {
-  const response = await api.get("/theaters/owner/shows");
+  const response = await api.get("/api/theaters/owner/shows");
   return response.data;
 }
 
 // 🕒 Real-Time Seat Availability
 export async function fetchShowAvailability(showId) {
-  const response = await api.get(`/theaters/shows/${showId}/seats`);
+  const response = await api.get(`/api/theaters/shows/${showId}/seats`);
   return response.data;
 }
 
 // 🔒 Seat Locking
 export async function lockSeats(payload) {
-  const response = await api.post("/bookings/lock", payload);
+  const response = await api.post("/api/bookings/lock", payload);
   return response.data;
 }
 
 // 💳 Confirm Booking
 export async function confirmBooking(bookingId, payload) {
-  const response = await api.post(`/bookings/confirm/${bookingId}`, payload);
+  const response = await api.post(`/api/bookings/confirm/${bookingId}`, payload);
   return response.data;
 }
 
 // Legacy / Support for old components
 export async function fetchBookedSeats({ movieId, theater, showTime }) {
-  const response = await api.get("/theaters/shows/seats", {
+  const response = await api.get("/api/theaters/shows/seats", {
     params: { movieId, theater, showTime },
   });
   return response.data;
 }
 
 export async function createBooking(payload) {
-  const response = await api.post("/bookings", payload);
+  const response = await api.post("/api/bookings", payload);
   return response.data;
 }
 
 export async function fetchBooking(id) {
-  const response = await api.get(`/bookings/${id}`);
+  const response = await api.get(`/api/bookings/${id}`);
   return response.data;
 }
 
 export async function addMovieReview(id, payload) {
-  const response = await api.post(`/movies/${id}/reviews`, payload);
+  const response = await api.post(`/api/movies/${id}/reviews`, payload);
   return response.data;
 }
 
 export async function createTheater(payload) {
-  const response = await api.post("/theaters", payload);
+  const response = await api.post("/api/theaters", payload);
   return response.data;
 }
 
 export async function createShow(payload) {
-  const response = await api.post("/theaters/shows", payload);
+  const response = await api.post("/api/theaters/shows", payload);
   return response.data;
 }
 
 export async function fetchAllTheaters() {
   try {
-    const response = await api.get("/theaters");
+    const response = await api.get("/api/theaters");
     return response.data;
   } catch (error) {
     console.warn("fetchAllTheaters: fallback to empty list", error);
@@ -141,7 +141,7 @@ export async function fetchAllTheaters() {
 
 export async function fetchAdminStats() {
   try {
-    const response = await api.get("/admin/stats");
+    const response = await api.get("/api/admin/stats");
     return response.data;
   } catch (error) {
     console.warn("fetchAdminStats: fallback to mock data", error);
